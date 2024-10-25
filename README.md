@@ -156,7 +156,7 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 [twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
 [twitter-url]: https://www.instagram.com/codeInCouture/
 [instagram-shield]: https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
-[instagram-url]: https://www.instagram.com/_foxnoir_/
+[instagram-url]: https://www.instagram.com/codeInCouture/
 
 <!-- Tech Stach Links-->
 
