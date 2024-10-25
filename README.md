@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <img src="images/logo.png" alt="Logo" width="80" height="80">
-  <h1 align="center">Basic (Really basic) Workout tracker</h1>
+  <h1 align="center">TDD and clean architecture</h1>
 
 <!-- PROJECT desc -->
   <p align="left">
