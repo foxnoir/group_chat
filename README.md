@@ -118,30 +118,14 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Hide Generated Files
 
-In-order to hide generated files, navigate to `Android Studio` -> `Preferences` -> `Editor` -> `File Types` and paste the below lines under `ignore files and folders` section:
-
-```
-*.inject.summary;*.inject.dart;*.g.dart;
-```
-
-In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `Files:Exclude`. Add the following patterns:
-
-```
-###/*.inject.summary
-###/*.inject.dart
-###/*.g.dart
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ## Changelog
 
   <p align="left">
-    <a href="https://github.com/foxnoir/messenger/blob/main/CHANGELOG.md"><strong>Check changes »</strong></a>
+    <a href="https://github.com/foxnoir/group_chat/blob/develop/CHANGELOG.md"><strong>Check changes »</strong></a>
     <br/>
   </p>
   </p>
@@ -170,7 +154,7 @@ In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `F
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/tanja-polz-5636401a5/
 [twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
-[twitter-url]: https://twitter.com/_foxnoir_?lang=de
+[twitter-url]: https://www.instagram.com/codeInCouture/
 [instagram-shield]: https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
 [instagram-url]: https://www.instagram.com/_foxnoir_/
 
