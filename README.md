@@ -218,13 +218,9 @@ flutter-app/
   └── pubspec.yaml
 ```
 
----
-
 ### **Feature-First Approach**
 
 The `features/` folder structure groups code by **feature domains** (e.g., `hotels/`), enabling better maintainability and scalability. Changes to one feature do not affect other modules.
-
----
 
 ### **Explanation**
 
@@ -239,8 +235,6 @@ The `features/` folder structure groups code by **feature domains** (e.g., `hote
 - **data_sources/**: Defines **remote or local data sources** that access the API (e.g., Dio) or a local database (e.g., Hive).  
   **Examples**: `hotel_api_service.dart`, `local_hotel_data_source.dart`
 
----
-
 #### **Domain**
 
 - **entities/**: Defines **"pure" objects** that reflect business logic (independent of API).  
@@ -248,8 +242,6 @@ The `features/` folder structure groups code by **feature domains** (e.g., `hote
 
 - **repositories/**: Defines **abstract interfaces** for the repositories implemented in the **data layer**.  
   **Examples**: `hotel_repository.dart`
-
----
 
 #### **Presentation**
 
@@ -262,16 +254,12 @@ The `features/` folder structure groups code by **feature domains** (e.g., `hote
 - **blocs/**: Contains **Bloc files** to manage the **state of the UI**.  
   **Examples**: `hotel_bloc.dart`, `hotel_event.dart`, `hotel_state.dart`
 
----
-
 #### **Global Widgets**
 
 Contains **reusable widgets** that can be used across multiple screens.  
  **Examples**: `app_card.dart`, `app_icon.dart`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
----
 
 ## **Packages and Reasons for Use**
 
@@ -317,18 +305,17 @@ View changes and updates to the app [here](https://github.com/foxnoir/group_chat
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+[dart]: https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white
+[dart-url]: https://dart.dev/
+[firebase]: https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white
+[firebase-url]: https://firebase.google.com/
+[flutter]: https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white
+[flutter-url]: https://flutter.dev/
+[instagram-shield]: https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
+[instagram-url]: https://www.instagram.com/codeincouture/
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/tanja-polz-5636401a5/
 [twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
 [twitter-url]: https://twitter.com/_foxnoir_?lang=de
-[instagram-shield]: https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
-[instagram-url]: https://www.instagram.com/_foxnoir_/
-[flutter]: https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white
-[flutter-url]: https://flutter.dev/
-[dart]: https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white
-[dart-url]: https://dart.dev/
-[flutter-url]: https://flutter.dev/
-[firebase]: https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white
-[firebase-url]: https://firebase.google.com/
