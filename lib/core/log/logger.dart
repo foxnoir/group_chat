@@ -1,46 +1,42 @@
-import 'dart:developer';
-import 'package:flutter/foundation.dart';
+import 'package:group_chat/core/di/di.dart';
+import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
-// Log levels:
-// https://github.com/pinojs/pino/issues/123
-// https://logging.apache.org/log4j/2.x/manual/customloglevels.html
+@singleton
+class LoggerService {
+  LoggerService()
+      : _logger = Logger(
+          printer: PrettyPrinter(
+            lineLength: 80,
+            dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
+          ),
+        );
+  final Logger _logger;
 
-class Logger {
-  Logger() {
-    logLevel = kDebugMode ? 100 : 700;
-  }
-  late int logLevel;
-
-  // fatal
-  void f(String message, Object error, StackTrace? stack) {
-    _log(message, 100, error, stack);
-  }
-
-  // error
-  void e(String message, Object error, StackTrace? stack) {
-    _log(message, 200, error, stack);
+  /// Debug-Level-Logs
+  void debug(String message) {
+    _logger.d(message);
   }
 
-  // warning
-  void w(String message, Object? error, StackTrace? stack) {
-    _log(message, 300, error, stack);
+  /// Info-Level-Logs
+  void info(String message) {
+    _logger.i(message);
   }
 
-  // information
-  void i(String message) {
-    _log(message, 400);
+  /// Warn-Level-Logs
+  void warning(String message) {
+    _logger.w(message);
   }
 
-  // debug
-  void d(String message) {
-    _log(message, 500);
+  /// Error-Level-Logs
+  void error(String message, {Object? error, StackTrace? stackTrace}) {
+    _logger.e(message, error: error, stackTrace: stackTrace);
   }
 
-  void _log(String message, int level, [Object? error, StackTrace? stack]) {
-    if (level >= logLevel) {
-      log(message, level: level, error: error, stackTrace: stack);
-    }
+  /// Fatal-Level-Logs
+  void fatal(String message, {Object? error, StackTrace? stackTrace}) {
+    _logger.f(message, error: error, stackTrace: stackTrace);
   }
 }
 
-final logger = Logger();
+LoggerService get logger => DI.getIt<LoggerService>();

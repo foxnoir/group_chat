@@ -71,7 +71,7 @@ extension GoRouterExtension on GoRouter {
       if (!AppRouter.router.canPop()) {
         return;
       }
-      logger.i('Popping ${AppRouter.router.location}');
+      logger.info('Popping ${AppRouter.router.location}');
       AppRouter.router.pop();
     }
   }
