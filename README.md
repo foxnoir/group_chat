@@ -137,6 +137,7 @@
 
 ### Libraries, Packages And Tools
 
+- [![Very][very-good]][very-good-url]
 - **Local Storage**: Hive
 - **Dependency Injection**: GetIt & Injectable
 - **State Management**: Bloc & Flutter Bloc
@@ -319,3 +320,5 @@ View changes and updates to the app [here](https://github.com/foxnoir/group_chat
 [linkedin-url]: https://www.linkedin.com/in/tanja-polz-5636401a5/
 [twitter-shield]: https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white
 [twitter-url]: https://twitter.com/_foxnoir_?lang=de
+[very-good]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
+[very-good-url]: https://pub.dev/packages/very_good_analysis
