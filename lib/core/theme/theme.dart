@@ -13,7 +13,7 @@ ThemeData _theme(ColorScheme colorScheme) {
       color: colorScheme.onSurface,
     ),
     // hotel count
-    headlineMedium: TextStyle(
+    headlineMedium: const TextStyle(
       fontSize: AppFontSize.s19,
       fontWeight: AppFontWeight.bold,
       color: AppColor.grey,
@@ -49,10 +49,12 @@ ThemeData _theme(ColorScheme colorScheme) {
     ),
   );
   final themeData = ThemeData(
-    fontFamily: AppFont.fontFamily,
+    useMaterial3: true,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    fontFamily: AppFont.poppins,
     primaryColor: colorScheme.primary,
     secondaryHeaderColor: colorScheme.secondary,
-    disabledColor: AppColor.dark_grey,
+    disabledColor: AppColor.darkGrey,
     scaffoldBackgroundColor: colorScheme.surface,
     colorScheme: colorScheme,
     brightness: colorScheme.brightness,
@@ -80,8 +82,8 @@ ThemeData _theme(ColorScheme colorScheme) {
     ),
 
     // Divider Theme
-    dividerTheme: DividerThemeData(
-      color: AppColor.light_grey,
+    dividerTheme: const DividerThemeData(
+      color: AppColor.lightGrey,
       thickness: 1,
       indent: 0,
       endIndent: 0,
@@ -114,14 +116,12 @@ ThemeData _theme(ColorScheme colorScheme) {
 }
 
 ColorScheme _getColorScheme(Brightness brightness) {
-  final lightColorScheme = ColorScheme.light(
-    primary: AppColor.dark_blue,
-    secondary: AppColor.orange,
-    tertiary: AppColor.dark_grey,
-    surface: AppColor.white_0,
+  const lightColorScheme = ColorScheme.light(
+    primary: AppColor.darkPurple,
+    secondary: AppColor.lightTurquoise,
+    tertiary: AppColor.darkGrey,
     error: AppColor.error,
-    outline: AppColor.light_grey,
-    onPrimary: AppColor.white_0,
+    outline: AppColor.lightGrey,
     onSurface: AppColor.grey,
   );
   return lightColorScheme;

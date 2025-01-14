@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-class HexColor extends Color {
-  HexColor({required String hexColor})
-      : super(_getColorFromHex(hexColorString: hexColor));
-
-  static int _getColorFromHex({required String hexColorString}) {
-    var hexColor = hexColorString.toUpperCase().replaceAll('#', '');
-    if (hexColor.length == 6) {
-      hexColor = 'FF$hexColor'; // Add alpha value if missing
-    }
-    return int.parse(hexColor, radix: 16);
-  }
-
-  static Color fromHex({required String hexColor}) {
-    return HexColor(hexColor: hexColor);
-  }
-}
-
 // Converts a Hex color into a MaterialColor
 MaterialColor createMaterialColor({required Color color}) {
   final swatch = <int, Color>{};

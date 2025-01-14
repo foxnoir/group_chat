@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:group_chat/core/theme/theme_helpers.dart';
 
 class Consts {
+  const Consts._();
+
   static const double navIconSize = 25;
   static const double acticveNavIconSize = 35;
   static const double cardPadding = 16;
@@ -9,23 +12,33 @@ class Consts {
 }
 
 class AppColor {
-  static Color white_0 = HexColor.fromHex(hexColor: '#FFFFFF');
-  static Color black_0 = HexColor.fromHex(hexColor: '#000000');
-  static Color dark_blue = HexColor.fromHex(hexColor: '#002873');
-  static Color light_green = HexColor.fromHex(hexColor: '#85BC39');
-  static Color orange = HexColor.fromHex(hexColor: '#FF8F16');
-  static Color dark_grey = HexColor.fromHex(hexColor: '#595959');
-  static Color grey = HexColor.fromHex(hexColor: '#222222');
-  static Color light_grey = HexColor.fromHex(hexColor: '#E9E9E9');
-  static Color box_grey = HexColor.fromHex(hexColor: '#9E9E9E');
-  static Color error = HexColor.fromHex(hexColor: '#E60000');
+  const AppColor._();
+
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color darkGrey = Color(0xFF595959);
+  static const Color grey = Color(0xFF222222);
+  static const Color lightGrey = Color(0xFFE9E9E9);
+  static const Color boxGrey = Color(0xFF9E9E9E);
+  static const Color error = Color(0xFF771305);
+
+  static const Color darkPurple = Color(0xFF473678);
+  static const Color lightPurple = Color(0xFFB385D7);
+  static const Color lightTurquoise = Color(0xFF64C0B5);
+  static const Color turquoise = Color(0xFF64C0B5);
+  static const Color darkTurquoise = Color(0xFF1E464C);
 }
 
 class AppFont {
-  static const String fontFamily = 'Open Sans';
+  const AppFont._();
+
+  static const poppins = 'Poppins';
+  static const aeonik = 'Aeonik';
 }
 
 class AppFontWeight {
+  const AppFontWeight._();
+
   static const FontWeight light = FontWeight.w300;
   static const FontWeight medium = FontWeight.w500;
   static const FontWeight semiBold = FontWeight.w600;
@@ -33,6 +46,7 @@ class AppFontWeight {
 }
 
 class AppFontSize {
+  const AppFontSize._();
   // details
   static const double s11 = 11;
   // bottom nav
@@ -54,9 +68,13 @@ class AppFontSize {
 }
 
 class SvgIcon {
+  const SvgIcon._();
+
   static const String account = 'assets/icons/account.svg';
 }
 
 class AppImg {
+  const AppImg._();
+
   static const String sadPalm = 'assets/img/sad_palm.png';
 }
