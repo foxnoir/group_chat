@@ -1,7 +1,10 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:group_chat/core/log/logger.dart';
 import 'package:group_chat/core/theme/theme.dart';
+import 'package:group_chat/features/router/app_router.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
@@ -28,8 +31,15 @@ class GroupChatApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Group Chat App',
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routeInformationParser: appRouter.routeInformationParser,
+      routeInformationProvider: appRouter.routeInformationProvider,
+      routerDelegate: appRouter.routerDelegate,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      // Todo: add locale
+      // locale: DI.getIt<SettingsRepository>().locale,
       theme: getLightTheme(),
     );
   }
