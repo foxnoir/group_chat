@@ -52,8 +52,11 @@
         <ul>
         <li><a href="#build-with">Build With</a></li>
       </ul>
-    <li><a href="#getting-started">Getting Started</a>
-    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
+        <ul>
+        <li><a href="#generate-launcher-icon">Generate Launcher Icon</a></li>
+        <li><a href="#generate-splash-screen">Generate Splash Screen</a></li>
+      </ul>
     <li><a href="#app-architecture-and-folder-structure">App Architecture and Folder Structure</a>
       <ul>
         <li><a href="#feature-first-approach">Feature-First Approach</a></li>
@@ -176,6 +179,24 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 ```
 flutter run
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Generate Launcher Icon
+
+> :warning: **(Normally, this should not need to be executed.)**
+
+```
+flutter pub run flutter_launcher_icons:main
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Generate Splash Screen
+
+```
+flutter pub run flutter_native_splash:create
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

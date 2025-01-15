@@ -21,17 +21,17 @@ Future<void> _loadApp() async {
   try {
     await DI.getIt.reset();
     await configureInjection(Environment.dev);
-    runApp(GroupChatApp());
+    runApp(JapanesTutorialApp());
   } catch (ex, st) {
     logger.error('startup exception', error: ex, stackTrace: st);
   }
 }
 
-class GroupChatApp extends StatelessWidget {
-  factory GroupChatApp() => instance;
-  const GroupChatApp._internal();
+class JapanesTutorialApp extends StatelessWidget {
+  factory JapanesTutorialApp() => instance;
+  const JapanesTutorialApp._internal();
 
-  static const GroupChatApp instance = GroupChatApp._internal();
+  static const JapanesTutorialApp instance = JapanesTutorialApp._internal();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,17 @@ class GroupChatApp extends StatelessWidget {
       routerDelegate: router.routerDelegate,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      localeResolutionCallback: (locale, supportedLocales) {
+        if (locale == null) {
+          return const Locale('en', '');
+        }
+        for (final supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode) {
+            return supportedLocale;
+          }
+        }
+        return const Locale('en', '');
+      },
 
       /// TODO(Noir): add locale
       /// locale: DI.getIt<SettingsRepository>().locale,

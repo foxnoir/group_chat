@@ -1,4 +1,9 @@
 {
   "@@locale": "en",
-  "overview": "Overview"
+  "learnJapanese": "Learn Japanese",
+  "learnJapaneseIntro": "Discover the beauty of the Japanese language with our app.",
+  "masterKanji": "Master Kanji",
+  "masterKanjiIntro": "Learn the most important Kanji with interactive exercises.",
+  "practiceGrammar": "Practice Grammar",
+  "practiceGrammarIntro": "Enhance your grammar skills with focused lessons."
 }

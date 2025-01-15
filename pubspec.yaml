@@ -38,17 +38,29 @@ dependencies:
   injectable: ^2.5.0
   go_router: ^14.6.3
   logger: ^2.5.0
+  flutter_launcher_icons: ^0.14.2
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   bloc_test: ^10.0.0
   flutter_lints: ^2.0.0
   mocktail: ^1.0.0
   very_good_analysis: ^6.0.0
   build_runner: ^2.4.13
   injectable_generator: ^2.6.2
+
+flutter_icons:
+  ios: true
+  image_path: "assets/images/launcher_icon/app_icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/launcher_icon/app_icon.png"
+
+flutter_native_splash:
+  color: "#fefefe"
+  image: assets/images/splash/splash.png
+  ios: true
 
 flutter:
   generate: true

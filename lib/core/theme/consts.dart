@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class Consts {
-  const Consts._();
+class AppConst {
+  const AppConst._();
 
   static const double navIconSize = 25;
   static const double acticveNavIconSize = 35;
@@ -74,16 +74,4 @@ class AppFontSize {
 
   /// price
   static const double s23 = 22;
-}
-
-class SvgIcon {
-  const SvgIcon._();
-
-  static const String account = 'assets/icons/account.svg';
-}
-
-class AppImg {
-  const AppImg._();
-
-  static const String sadPalm = 'assets/img/sad_palm.png';
 }
