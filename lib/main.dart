@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:injectable/injectable.dart';
 import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:japanese_tutorials_app/core/log/logger.dart';
 import 'package:japanese_tutorials_app/core/theme/theme.dart';
 import 'package:japanese_tutorials_app/features/router/app_router.dart';
-import 'package:injectable/injectable.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
