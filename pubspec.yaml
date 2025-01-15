@@ -61,9 +61,7 @@ flutter_native_splash:
   color: "#fefefe"
   image: assets/images/splash/splash.png
   ios: true
-  android_12:
-    image: assets/images/splash/logo_android_text.png
-    icon_background_color: "#fefefe"
+  ios_content_mode: scaleToFill
 
 flutter:
   generate: true
