@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_chat/core/theme/consts.dart';
+import 'package:japanese_tutorials_app/core/theme/consts.dart';
 
 ThemeData getLightTheme() {
   return _theme(_getColorScheme(Brightness.light));
@@ -12,25 +12,29 @@ ThemeData _theme(ColorScheme colorScheme) {
       fontWeight: AppFontWeight.bold,
       color: colorScheme.onSurface,
     ),
-    // hotel count
+
+    /// hotel count
     headlineMedium: const TextStyle(
       fontSize: AppFontSize.s19,
       fontWeight: AppFontWeight.bold,
       color: AppColor.grey,
     ),
-    // app bar
+
+    /// app bar
     headlineSmall: TextStyle(
       fontSize: AppFontSize.s19,
       fontWeight: AppFontWeight.bold,
       color: colorScheme.onPrimary,
     ),
-    // bottom nav
+
+    /// bottom nav
     labelSmall: TextStyle(
       fontSize: AppFontSize.s12,
       fontWeight: AppFontWeight.medium,
       color: colorScheme.tertiary,
     ),
-    // buttons
+
+    /// buttons
     labelMedium: TextStyle(
       fontSize: AppFontSize.s16,
       fontWeight: AppFontWeight.bold,
@@ -41,7 +45,8 @@ ThemeData _theme(ColorScheme colorScheme) {
       fontWeight: AppFontWeight.medium,
       color: colorScheme.tertiary,
     ),
-    // small card Text
+
+    /// small card Text
     bodySmall: TextStyle(
       fontSize: AppFontSize.s11,
       fontWeight: AppFontWeight.medium,
@@ -63,7 +68,7 @@ ThemeData _theme(ColorScheme colorScheme) {
       color: colorScheme.onSurface,
     ),
 
-    // AppBar Theme
+    /// AppBar Theme
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       centerTitle: true,
@@ -81,7 +86,7 @@ ThemeData _theme(ColorScheme colorScheme) {
       unselectedLabelStyle: textTheme.labelSmall,
     ),
 
-    // Divider Theme
+    /// Divider Theme
     dividerTheme: const DividerThemeData(
       color: AppColor.lightGrey,
       thickness: 1,

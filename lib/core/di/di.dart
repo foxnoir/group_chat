@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:group_chat/core/di/di.config.dart';
+import 'package:japanese_tutorials_app/core/di/di.config.dart';
 import 'package:injectable/injectable.dart';
 
 // Method used to initialized the dependency injection. Called in main.

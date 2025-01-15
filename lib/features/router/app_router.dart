@@ -2,44 +2,49 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:group_chat/core/log/logger.dart';
-import 'package:group_chat/features/on_boarding/presentation/on_boarding_screen.dart';
-import 'package:group_chat/features/router/app_router_names.dart';
-import 'package:group_chat/features/router/page_not_found.dart';
-import 'package:group_chat/features/router/transiton_page.dart';
+import 'package:japanese_tutorials_app/core/di/di.dart';
+import 'package:japanese_tutorials_app/core/log/logger.dart';
+import 'package:japanese_tutorials_app/features/on_boarding/presentation/on_boarding_screen.dart';
+import 'package:japanese_tutorials_app/features/router/app_router_names.dart';
+import 'package:japanese_tutorials_app/features/router/page_not_found.dart';
+import 'package:japanese_tutorials_app/features/router/transiton_page.dart';
+import 'package:injectable/injectable.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+@singleton
 class AppRouter {
   AppRouter({required this.isTesting});
   final bool isTesting;
-  static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.initialLocation,
-    navigatorKey: navigatorKey,
-    errorBuilder: (context, state) => const PageNotFound(),
-    routes: [
-      ShellRoute(
-        pageBuilder: (context, state, child) => TransitionPage(
-          key: state.pageKey,
-          child: Scaffold(
-            body: child,
-          ),
-        ),
+  GoRouter router([String? initialLocation]) => GoRouter(
+        initialLocation: AppRouteNames.initialLocation,
+        navigatorKey: navigatorKey,
+        errorBuilder: (context, state) => const PageNotFound(),
         routes: [
-          GoRoute(
-            path: AppRouteNames.home,
-            name: AppRouteNames.home,
-            pageBuilder: (context, state) => TransitionPage(
+          ShellRoute(
+            pageBuilder: (context, state, child) => TransitionPage(
               key: state.pageKey,
-              child: const OnBoardingScreen(),
+              child: Scaffold(
+                body: child,
+              ),
             ),
-            routes: const [],
+            routes: [
+              GoRoute(
+                path: AppRouteNames.home,
+                name: AppRouteNames.home,
+                pageBuilder: (context, state) => TransitionPage(
+                  key: state.pageKey,
+                  child: const OnBoardingScreen(),
+                ),
+                routes: const [],
+              ),
+            ],
           ),
         ],
-      ),
-    ],
-  );
+      );
 }
+
+GoRouter get router => DI.getIt<AppRouter>().router();
 
 extension GoRouterLocation on GoRouter {
   String get location {
@@ -65,14 +70,14 @@ extension GoRouterLocation on GoRouter {
 }
 
 extension GoRouterExtension on GoRouter {
-  // Custom function to navigate to a specific route with parameters
+  /// Custom function to navigate to a specific route with parameters
   void popUntilPath({required String routePath}) {
-    while (AppRouter.router.location != routePath) {
-      if (!AppRouter.router.canPop()) {
+    while (router.location != routePath) {
+      if (!router.canPop()) {
         return;
       }
-      logger.info('Popping ${AppRouter.router.location}');
-      AppRouter.router.pop();
+      logger.info('Popping ${router.location}');
+      router.pop();
     }
   }
 }

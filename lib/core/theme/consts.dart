@@ -47,23 +47,32 @@ class AppFontWeight {
 
 class AppFontSize {
   const AppFontSize._();
-  // details
+
+  /// details
   static const double s11 = 11;
-  // bottom nav
+
+  /// bottom nav
   static const double s12 = 12;
-  // error banner
+
+  /// error banner
   static const double s14 = 14;
-  // button
+
+  /// button
   static const double s16 = 16;
-  // hotels
+
+  /// hotels
   static const double s17 = 17;
-  // prize  small devices
+
+  /// prize  small devices
   static const double s18 = 18;
-  // hotel count
+
+  /// hotel count
   static const double s19 = 19;
-  // hotel name
+
+  /// hotel name
   static const double s21 = 21;
-  // price
+
+  /// price
   static const double s23 = 22;
 }
 

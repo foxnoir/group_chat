@@ -25,7 +25,7 @@ MaterialColor createMaterialColor({required Color color}) {
     );
   }
 
-  // Manually construct the 32-bit integer representation of the color
+  /// Manually construct the 32-bit integer representation of the color
   final colorValue = (color.a.toInt() << 24) |
       (color.r.toInt() << 16) |
       (color.g.toInt() << 8) |

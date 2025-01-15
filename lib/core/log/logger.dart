@@ -1,4 +1,4 @@
-import 'package:group_chat/core/di/di.dart';
+import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 

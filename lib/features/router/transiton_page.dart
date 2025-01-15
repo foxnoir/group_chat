@@ -28,8 +28,12 @@ class ReverseSlideTransitionPage extends CustomTransitionPage<dynamic> {
     required super.child,
   }) : super(
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(-1, 0); // Opposite of SlideTransitionPage
-            const end = Offset.zero; // Opposite of SlideTransitionPage
+            const begin = Offset(-1, 0);
+
+            /// Opposite of SlideTransitionPage
+            const end = Offset.zero;
+
+            /// Opposite of SlideTransitionPage
             const curve = Curves.ease;
 
             final tween =
