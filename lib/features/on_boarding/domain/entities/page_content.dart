@@ -14,7 +14,7 @@ class PageContent extends Equatable {
           title: 'Brand new curriculum',
           description:
               'This is the first online education platform designed by the '
-              "world's top professors",
+              "world's top xdddd",
         );
 
   const PageContent.second()
