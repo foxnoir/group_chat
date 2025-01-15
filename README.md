@@ -18,7 +18,7 @@
   </p>
 
   <p align="left">
-    <a href="https://github.com/foxnoir/group_chat/tree/develop/lib"><strong>Explore the project »</strong></a>
+    <a href="https://github.com/foxnoir/japanese_tutorials_app/tree/develop/lib"><strong>Explore the project »</strong></a>
     <br/>
   </p>
 
@@ -157,11 +157,11 @@
 - Download or clone this repo by using the link or the SSH URL below:
 
 ```
-https://github.com/foxnoir/group_chat.git
+https://github.com/foxnoir/japanese_tutorials_app.git
 ```
 
 ```
-git@github.com:foxnoir/group_chat.git
+git@github.com:foxnoir/japanese_tutorials_app.git
 ```
 
 - Go to project root and execute the following command in console to get the required dependencies:
@@ -292,7 +292,7 @@ Contains **reusable widgets** that can be used across multiple screens.
 
 ## **Changelog**
 
-View changes and updates to the app [here](https://github.com/foxnoir/group_chat/blob/develop/CHANGELOG.md).
+View changes and updates to the app [here](https://github.com/foxnoir/japanese_tutorials_app/blob/develop/CHANGELOG.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
