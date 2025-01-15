@@ -43,17 +43,17 @@ class JapanesTutorialApp extends StatelessWidget {
       routerDelegate: router.routerDelegate,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // localeResolutionCallback: (locale, supportedLocales) {
-      //   if (locale == null) {
-      //     return const Locale('en', '');
-      //   }
-      //   for (final supportedLocale in supportedLocales) {
-      //     if (supportedLocale.languageCode == locale.languageCode) {
-      //       return supportedLocale;
-      //     }
-      //   }
-      //   return const Locale('en', '');
-      // },
+      localeResolutionCallback: (locale, supportedLocales) {
+        if (locale == null) {
+          return const Locale('en', '');
+        }
+        for (final supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode) {
+            return supportedLocale;
+          }
+        }
+        return const Locale('en', '');
+      },
 
       /// TODO(Noir): add locale
       /// locale: DI.getIt<SettingsRepository>().locale,

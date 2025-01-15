@@ -1,5 +1,5 @@
-import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:injectable/injectable.dart';
+import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:logger/logger.dart';
 
 @singleton

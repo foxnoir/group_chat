@@ -5,7 +5,7 @@ import 'package:japanese_tutorials_app/features/on_boarding/domain/repos/on_boar
 import 'package:japanese_tutorials_app/features/on_boarding/domain/usecases/cache_first_timer.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'on_boarding_repo.mock.dart';
+import '../../../../mocks.mock.dart';
 
 // This test verifies that the CacheFirstTimer usecase:
 // 1. Calls the [cacheFirstTimer] method on the OnBoardingRepo.
@@ -27,7 +27,6 @@ void main() {
     'should call the [OnBoardingRepo.cacheFirstTimer] '
     'and return the right data',
     () async {
-      // arrange
       when(() => repo.cacheFirstTimer()).thenAnswer(
         (_) async => Left<Failure, dynamic>(
           ServerFailure(
@@ -37,10 +36,8 @@ void main() {
         ),
       );
 
-      // act
       final result = await usecase();
 
-      // assert
       expect(
         result,
         equals(

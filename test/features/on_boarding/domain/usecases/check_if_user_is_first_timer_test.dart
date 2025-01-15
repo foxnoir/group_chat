@@ -5,32 +5,29 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:japanese_tutorials_app/features/on_boarding/domain/usecases/check_if_user_is_first_timer.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'on_boarding_repo.mock.dart';
+import '../../../../mocks.mock.dart';
 
 void main() {
-  late MockOnBoardingRepo repo;
-  late CheckIfUserIsFirstTimer usecase;
+  late MockOnBoardingRepo _repo;
+  late CheckIfUserIsFirstTimer _usecase;
 
   setUp(() {
-    repo = MockOnBoardingRepo();
-    usecase = CheckIfUserIsFirstTimer(repo);
+    _repo = MockOnBoardingRepo();
+    _usecase = CheckIfUserIsFirstTimer(_repo);
   });
 
   test(
     'should get a response from the [MockOnBoardingRepo]',
     () async {
-      // arrange
-      when(() => repo.checkIfUserIsFirstTimer()).thenAnswer(
+      when(() => _repo.checkIfUserIsFirstTimer()).thenAnswer(
         (_) async => const Right(true),
       );
 
-      // act
-      final result = await usecase();
+      final result = await _usecase();
 
-      // assert
       expect(result, equals(const Right<dynamic, bool>(true)));
-      verify(() => repo.checkIfUserIsFirstTimer()).called(1);
-      verifyNoMoreInteractions(repo);
+      verify(() => _repo.checkIfUserIsFirstTimer()).called(1);
+      verifyNoMoreInteractions(_repo);
     },
   );
 }
