@@ -29,7 +29,7 @@ void main() {
           (_) async => Future.value(),
         );
 
-        final result = _repoImpl.cacheFirstTimer();
+        final result = await _repoImpl.cacheFirstTimer();
 
         expect(result, equals(const Right<dynamic, void>(null)));
         verify(() => _localDataSource.cacheFirstTimer()).called(1);
@@ -45,7 +45,7 @@ void main() {
           const CacheException(message: 'Insufficient storage'),
         );
 
-        final result = _repoImpl.cacheFirstTimer();
+        final result = await _repoImpl.cacheFirstTimer();
 
         expect(
           result,
