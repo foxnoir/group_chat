@@ -9,28 +9,29 @@ enum PrefsKey {
 }
 
 class Prefs {
+  Prefs._();
+
   /// default value for tokenSetting
   static const String devBaseURLDefault = '---';
   static const bool isQADeviceDefault = false;
 
-  static final SharedPreferences _sharedPreferences =
-      DI.getIt<SharedPreferences>();
+  final SharedPreferences _sharedPreferences = DI.getIt<SharedPreferences>();
 
   /// prefix for settingsKey to prevent mixing Datatypes
-  static String prefixString = 's';
-  static String prefixStringList = 'sl';
+  String prefixString = 's';
+  String prefixStringList = 'sl';
 
   /// prefix for settingsKey to prevent mixing Datatypes
-  static String prefixInt = 'i';
+  String prefixInt = 'i';
 
   /// prefix for settingsKey to prevent mixing Datatypes
-  static String prefixBool = 'b';
+  String prefixBool = 'b';
 
   /// prefix for settingsKey to prevent mixing Datatypes
-  static String prefixDouble = 'd';
+  String prefixDouble = 'd';
 
   /// clears all values, only use when it is necessary
-  static void clear() {
+  void clear() {
     if (!const bool.fromEnvironment('dart.vm.product')) {
       const prefsKeys = PrefsKey.values;
       // TODO(Noir): write better clear logic
@@ -46,25 +47,25 @@ class Prefs {
   }
 
   /// resets all userData / settings after logging out or similar
-  static void reset() {}
+  void reset() {}
 
-  static void putString(PrefsKey key, String value) {
+  void setString({required PrefsKey key, required String value}) {
     _sharedPreferences.setString('$prefixString$key', value);
   }
 
-  static void putInt(PrefsKey key, int value) {
+  void setInt({required PrefsKey key, required int value}) {
     _sharedPreferences.setInt('$prefixInt$key', value);
   }
 
-  static void putDouble(PrefsKey key, double value) {
+  void setDouble({required PrefsKey key, required double value}) {
     _sharedPreferences.setDouble('$prefixDouble$key', value);
   }
 
-  static void putBool(PrefsKey key, bool value) {
+  void setBool({required PrefsKey key, required bool value}) {
     _sharedPreferences.setBool('$prefixBool$key', value);
   }
 
-  static String? getString(PrefsKey key, String? defaultValue) {
+  String? getString({required PrefsKey key, required String? defaultValue}) {
     var res = defaultValue;
     if (_sharedPreferences.containsKey('$prefixString$key')) {
       res = _sharedPreferences.getString('$prefixString$key') ?? defaultValue;
@@ -72,7 +73,10 @@ class Prefs {
     return res;
   }
 
-  static List<String> getStringList(PrefsKey key, List<String> defaultValue) {
+  List<String> getStringList({
+    required PrefsKey key,
+    required List<String> defaultValue,
+  }) {
     var res = defaultValue;
     if (_sharedPreferences.containsKey('$prefixStringList$key')) {
       res = _sharedPreferences.getStringList('$prefixStringList$key') ??
@@ -81,11 +85,11 @@ class Prefs {
     return res;
   }
 
-  static void putStringList(PrefsKey key, List<String> value) {
+  void setStringList({required PrefsKey key, required List<String> value}) {
     _sharedPreferences.setStringList('$prefixStringList$key', value);
   }
 
-  static int getInt(PrefsKey key, int defaultValue) {
+  int getInt({required PrefsKey key, required int defaultValue}) {
     var res = defaultValue;
     if (_sharedPreferences.containsKey('$prefixInt$key')) {
       res = _sharedPreferences.getInt('$prefixInt$key') ?? defaultValue;
@@ -93,7 +97,7 @@ class Prefs {
     return res;
   }
 
-  static double getDouble(PrefsKey key, double defaultValue) {
+  double getDouble({required PrefsKey key, required double defaultValue}) {
     var res = defaultValue;
     if (_sharedPreferences.containsKey('$prefixDouble$key')) {
       res = _sharedPreferences.getDouble('$prefixDouble$key') ?? defaultValue;
@@ -101,7 +105,7 @@ class Prefs {
     return res;
   }
 
-  static bool getBool(PrefsKey key, bool defaultValue) {
+  bool getBool({required PrefsKey key, required bool defaultValue}) {
     var res = defaultValue;
     if (_sharedPreferences.containsKey('$prefixBool$key')) {
       res = _sharedPreferences.getBool('$prefixBool$key') ?? defaultValue;
@@ -110,27 +114,27 @@ class Prefs {
     return res;
   }
 
-  static String cleanKey(PrefsKey key) {
+  String cleanKey({required PrefsKey key}) {
     return key.toString().split('.')[1];
   }
 
-  static void removeStringOption(PrefsKey key) {
+  void removeStringOption({required PrefsKey key}) {
     _sharedPreferences.remove('$prefixString$key');
   }
 
-  static void removeIntOption(PrefsKey key) {
+  void removeIntOption({required PrefsKey key}) {
     _sharedPreferences.remove('$prefixInt$key');
   }
 
-  static void removeBoolOption(PrefsKey key) {
+  void removeBoolOption({required PrefsKey key}) {
     _sharedPreferences.remove('$prefixBool$key');
   }
 
-  static void removeDoubleOption(PrefsKey key) {
+  void removeDoubleOption({required PrefsKey key}) {
     _sharedPreferences.remove('$prefixDouble$key');
   }
 
-  static Future<void> printAllValues() async {
+  Future<void> printAllValues() async {
     const keys = PrefsKey.values;
     final values = <PrefsKey, dynamic>{};
 

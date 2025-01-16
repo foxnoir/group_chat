@@ -15,19 +15,19 @@ import '../../../../mocks.mock.dart';
 // errors and handles them consistently.
 
 void main() {
-  late OnBoardingRepo repo;
-  late CacheFirstTimer usecase;
+  late OnBoardingRepo _repo;
+  late CacheFirstTimer _usecase;
 
   setUp(() {
-    repo = MockOnBoardingRepo();
-    usecase = CacheFirstTimer(repo);
+    _repo = MockOnBoardingRepo();
+    _usecase = CacheFirstTimer(_repo);
   });
 
   test(
     'should call the [OnBoardingRepo.cacheFirstTimer] '
     'and return the right data',
     () async {
-      when(() => repo.cacheFirstTimer()).thenAnswer(
+      when(() => _repo.cacheFirstTimer()).thenAnswer(
         (_) async => Left<Failure, dynamic>(
           ServerFailure(
             message: 'Unknown Error Occurred',
@@ -36,7 +36,7 @@ void main() {
         ),
       );
 
-      final result = await usecase();
+      final result = await _usecase();
 
       expect(
         result,
@@ -49,8 +49,8 @@ void main() {
           ),
         ),
       );
-      verify(() => repo.cacheFirstTimer()).called(1);
-      verifyNoMoreInteractions(repo);
+      verify(() => _repo.cacheFirstTimer()).called(1);
+      verifyNoMoreInteractions(_repo);
     },
   );
 }

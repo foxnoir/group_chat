@@ -1,3 +1,4 @@
+import 'package:japanese_tutorials_app/features/storage/prefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Data Source:
@@ -19,11 +20,11 @@ abstract class OnBoardingLocalDataSource {
 class OnBoardingLocalDataSrcImpl extends OnBoardingLocalDataSource {
   const OnBoardingLocalDataSrcImpl(this._prefs);
 
-  final SharedPreferences _prefs;
+  final Prefs _prefs;
 
   @override
   Future<void> cacheFirstTimer() async {
-    throw UnimplementedError();
+    _prefs.setBool(key: PrefsKey.isFirstTimer, value: false);
   }
 
   @override
