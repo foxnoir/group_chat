@@ -18,7 +18,7 @@ void main() {
 
   test(
     'should get a response from the [MockOnBoardingRepo]',
-    () async {
+    () {
       when(() => _repo.checkIfUserIsFirstTimer()).thenAnswer(
         (_) => const Right(true),
       );

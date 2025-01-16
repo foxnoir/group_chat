@@ -12,7 +12,7 @@ import 'package:japanese_tutorials_app/features/storage/prefs.dart';
 abstract class OnBoardingLocalDataSource {
   const OnBoardingLocalDataSource();
 
-  void cacheFirstTimer();
+  Future<void> cacheFirstTimer();
 
   bool checkIfUserIsFirstTimer();
 }
@@ -23,9 +23,9 @@ class OnBoardingLocalDataSrcImpl extends OnBoardingLocalDataSource {
   final Prefs _prefs;
 
   @override
-  void cacheFirstTimer() {
+  Future<void> cacheFirstTimer() async {
     try {
-      _prefs.setBool(key: PrefsKey.isFirstTimer, value: false);
+      await _prefs.setBool(key: PrefsKey.isFirstTimer, value: false);
     } catch (e) {
       throw CacheException(message: e.toString());
     }
@@ -33,6 +33,10 @@ class OnBoardingLocalDataSrcImpl extends OnBoardingLocalDataSource {
 
   @override
   bool checkIfUserIsFirstTimer() {
-    throw UnimplementedError();
+    try {
+      return _prefs.getBool(key: PrefsKey.isFirstTimer, defaultValue: true);
+    } catch (e) {
+      throw CacheException(message: e.toString());
+    }
   }
 }

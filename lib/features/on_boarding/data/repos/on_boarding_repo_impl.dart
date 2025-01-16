@@ -23,9 +23,9 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
   final OnBoardingLocalDataSource _localDataSource;
 
   @override
-  Result<void> cacheFirstTimer() {
+  ResultFuture<void> cacheFirstTimer() async {
     try {
-      _localDataSource.cacheFirstTimer();
+      await _localDataSource.cacheFirstTimer();
       return const Right(null);
     } on CacheException catch (e) {
       return Left(

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_positional_boolean_parameters
+// ignore_for_file: aFuture<void>_positional_boolean_parameter asyncs
 
 import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:japanese_tutorials_app/core/log/logger.dart';
@@ -31,104 +31,109 @@ class Prefs {
   String prefixDouble = 'd';
 
   /// clears all values, only use when it is necessary
-  void clear() {
+  Future<void> clear() async {
     if (!const bool.fromEnvironment('dart.vm.product')) {
       const prefsKeys = PrefsKey.values;
       // TODO(Noir): write better clear logic
       // for (final key in prefsKeys) {
       //   if (key != PrefsKey.devBaseURL) {
       //     final prefsKeyString = '$prefixString$key';
-      //     _sharedPreferences.remove(prefsKeyString);
+      // await    _sharedPreferences.remove(prefsKeyString);
       //   } else {
-      //     _sharedPreferences.clear();
+      // await    _sharedPreferences.clear();
       //   }
       // }
     }
   }
 
-  void setString({required PrefsKey key, required String value}) {
-    _sharedPreferences.setString('$prefixString$key', value);
+  Future<void> setString({required PrefsKey key, required String value}) async {
+    await _sharedPreferences.setString('$prefixString$key', value);
   }
 
-  void setInt({required PrefsKey key, required int value}) {
-    _sharedPreferences.setInt('$prefixInt$key', value);
+  Future<void> setInt({required PrefsKey key, required int value}) async {
+    await _sharedPreferences.setInt('$prefixInt$key', value);
   }
 
-  void setDouble({required PrefsKey key, required double value}) {
-    _sharedPreferences.setDouble('$prefixDouble$key', value);
+  Future<void> setDouble({required PrefsKey key, required double value}) async {
+    await _sharedPreferences.setDouble('$prefixDouble$key', value);
   }
 
-  void setBool({required PrefsKey key, required bool value}) {
-    _sharedPreferences.setBool('$prefixBool$key', value);
+  Future<void> setBool({required PrefsKey key, required bool value}) async {
+    await _sharedPreferences.setBool('$prefixBool$key', value);
   }
 
   String? getString({required PrefsKey key, required String? defaultValue}) {
-    var res = defaultValue;
+    var result = defaultValue;
     if (_sharedPreferences.containsKey('$prefixString$key')) {
-      res = _sharedPreferences.getString('$prefixString$key') ?? defaultValue;
+      result =
+          _sharedPreferences.getString('$prefixString$key') ?? defaultValue;
     }
-    return res;
+    return result;
   }
 
-  List<String> getStringList({
+  List<String>? getStringList({
     required PrefsKey key,
     required List<String> defaultValue,
   }) {
-    var res = defaultValue;
+    var result = defaultValue;
     if (_sharedPreferences.containsKey('$prefixStringList$key')) {
-      res = _sharedPreferences.getStringList('$prefixStringList$key') ??
+      result = _sharedPreferences.getStringList('$prefixStringList$key') ??
           defaultValue;
     }
-    return res;
+    return result;
   }
 
-  void setStringList({required PrefsKey key, required List<String> value}) {
-    _sharedPreferences.setStringList('$prefixStringList$key', value);
+  Future<void> setStringList({
+    required PrefsKey key,
+    required List<String> value,
+  }) async {
+    await _sharedPreferences.setStringList('$prefixStringList$key', value);
   }
 
   int getInt({required PrefsKey key, required int defaultValue}) {
-    var res = defaultValue;
+    var result = defaultValue;
     if (_sharedPreferences.containsKey('$prefixInt$key')) {
-      res = _sharedPreferences.getInt('$prefixInt$key') ?? defaultValue;
+      result = _sharedPreferences.getInt('$prefixInt$key') ?? defaultValue;
     }
-    return res;
+    return result;
   }
 
   double getDouble({required PrefsKey key, required double defaultValue}) {
-    var res = defaultValue;
+    var result = defaultValue;
     if (_sharedPreferences.containsKey('$prefixDouble$key')) {
-      res = _sharedPreferences.getDouble('$prefixDouble$key') ?? defaultValue;
+      result =
+          _sharedPreferences.getDouble('$prefixDouble$key') ?? defaultValue;
     }
-    return res;
+    return result;
   }
 
   bool getBool({required PrefsKey key, required bool defaultValue}) {
-    var res = defaultValue;
+    var result = defaultValue;
     if (_sharedPreferences.containsKey('$prefixBool$key')) {
-      res = _sharedPreferences.getBool('$prefixBool$key') ?? defaultValue;
+      result = _sharedPreferences.getBool('$prefixBool$key') ?? defaultValue;
     }
 
-    return res;
+    return result;
   }
 
   String cleanKey({required PrefsKey key}) {
     return key.toString().split('.')[1];
   }
 
-  void removeStringOption({required PrefsKey key}) {
-    _sharedPreferences.remove('$prefixString$key');
+  Future<void> removeStringOption({required PrefsKey key}) async {
+    await _sharedPreferences.remove('$prefixString$key');
   }
 
-  void removeIntOption({required PrefsKey key}) {
-    _sharedPreferences.remove('$prefixInt$key');
+  Future<void> removeIntOption({required PrefsKey key}) async {
+    await _sharedPreferences.remove('$prefixInt$key');
   }
 
-  void removeBoolOption({required PrefsKey key}) {
-    _sharedPreferences.remove('$prefixBool$key');
+  Future<void> removeBoolOption({required PrefsKey key}) async {
+    await _sharedPreferences.remove('$prefixBool$key');
   }
 
-  void removeDoubleOption({required PrefsKey key}) {
-    _sharedPreferences.remove('$prefixDouble$key');
+  Future<void> removeDoubleOption({required PrefsKey key}) async {
+    await _sharedPreferences.remove('$prefixDouble$key');
   }
 
   Future<void> printAllValues() async {
