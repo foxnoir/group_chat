@@ -29,7 +29,7 @@ void main() {
           (_) async => Future.value(),
         );
 
-        final result = await _repoImpl.cacheFirstTimer();
+        final result = _repoImpl.cacheFirstTimer();
 
         expect(result, equals(const Right<dynamic, void>(null)));
         verify(() => _localDataSource.cacheFirstTimer()).called(1);
@@ -45,7 +45,7 @@ void main() {
           const CacheException(message: 'Insufficient storage'),
         );
 
-        final result = await _repoImpl.cacheFirstTimer();
+        final result = _repoImpl.cacheFirstTimer();
 
         expect(
           result,
@@ -62,12 +62,12 @@ void main() {
   group('checkIfUserIsFirstTimer', () {
     test(
       'should return true when user is first timer',
-      () async {
+      () {
         when(() => _localDataSource.checkIfUserIsFirstTimer()).thenAnswer(
-          (_) async => true,
+          (_) => true,
         );
 
-        final result = await _repoImpl.checkIfUserIsFirstTimer();
+        final result = _repoImpl.checkIfUserIsFirstTimer();
 
         expect(result, equals(const Right<dynamic, bool>(true)));
         verify(() => _localDataSource.checkIfUserIsFirstTimer());

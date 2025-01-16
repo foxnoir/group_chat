@@ -26,9 +26,9 @@ void main() {
   test(
     'should call the [OnBoardingRepo.cacheFirstTimer] '
     'and return the right data',
-    () async {
+    () {
       when(() => _repo.cacheFirstTimer()).thenAnswer(
-        (_) async => Left<Failure, dynamic>(
+        (_) => Left<Failure, dynamic>(
           ServerFailure(
             message: 'Unknown Error Occurred',
             statusCode: 500,
@@ -36,7 +36,7 @@ void main() {
         ),
       );
 
-      final result = await _usecase();
+      final result = _usecase();
 
       expect(
         result,

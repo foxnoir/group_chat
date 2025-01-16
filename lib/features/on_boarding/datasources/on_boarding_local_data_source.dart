@@ -1,5 +1,5 @@
+import 'package:japanese_tutorials_app/core/errors/exceptions.dart';
 import 'package:japanese_tutorials_app/features/storage/prefs.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// Data Source:
 /// - Responsible for low-level data operations, such as interacting with APIs,
@@ -12,9 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class OnBoardingLocalDataSource {
   const OnBoardingLocalDataSource();
 
-  Future<void> cacheFirstTimer();
+  void cacheFirstTimer();
 
-  Future<bool> checkIfUserIsFirstTimer();
+  bool checkIfUserIsFirstTimer();
 }
 
 class OnBoardingLocalDataSrcImpl extends OnBoardingLocalDataSource {
@@ -23,12 +23,16 @@ class OnBoardingLocalDataSrcImpl extends OnBoardingLocalDataSource {
   final Prefs _prefs;
 
   @override
-  Future<void> cacheFirstTimer() async {
-    _prefs.setBool(key: PrefsKey.isFirstTimer, value: false);
+  void cacheFirstTimer() {
+    try {
+      _prefs.setBool(key: PrefsKey.isFirstTimer, value: false);
+    } catch (e) {
+      throw CacheException(message: e.toString());
+    }
   }
 
   @override
-  Future<bool> checkIfUserIsFirstTimer() async {
+  bool checkIfUserIsFirstTimer() {
     throw UnimplementedError();
   }
 }

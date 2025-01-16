@@ -8,5 +8,5 @@ class CheckIfUserIsFirstTimer extends UsecaseWithoutParams<bool> {
   final OnBoardingRepo _repo;
 
   @override
-  ResultFuture<bool> call() async => _repo.checkIfUserIsFirstTimer();
+  Result<bool> call() => _repo.checkIfUserIsFirstTimer();
 }

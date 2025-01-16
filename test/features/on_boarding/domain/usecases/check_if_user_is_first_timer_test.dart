@@ -20,10 +20,10 @@ void main() {
     'should get a response from the [MockOnBoardingRepo]',
     () async {
       when(() => _repo.checkIfUserIsFirstTimer()).thenAnswer(
-        (_) async => const Right(true),
+        (_) => const Right(true),
       );
 
-      final result = await _usecase();
+      final result = _usecase();
 
       expect(result, equals(const Right<dynamic, bool>(true)));
       verify(() => _repo.checkIfUserIsFirstTimer()).called(1);

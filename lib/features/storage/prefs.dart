@@ -46,9 +46,6 @@ class Prefs {
     }
   }
 
-  /// resets all userData / settings after logging out or similar
-  void reset() {}
-
   void setString({required PrefsKey key, required String value}) {
     _sharedPreferences.setString('$prefixString$key', value);
   }

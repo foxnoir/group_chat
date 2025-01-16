@@ -12,7 +12,8 @@ import 'package:japanese_tutorials_app/features/on_boarding/domain/repos/on_boar
 ///   - Abstract low-level exceptions (e.g., `CacheException`) and map them to
 ///     domain-specific failures (e.g., `CacheFailure`).
 /// - Responsible for combining data from multiple sources (if needed) and
-///   ensuring that only clean, business-ready data is passed to the domain layer.
+///   ensuring that only clean, business-ready data is passed to
+///   the domain layer.
 /// - Enhances testability and modularity by decoupling the domain layer from
 ///   implementation details.
 
@@ -22,9 +23,9 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
   final OnBoardingLocalDataSource _localDataSource;
 
   @override
-  ResultFuture<void> cacheFirstTimer() async {
+  Result<void> cacheFirstTimer() {
     try {
-      await _localDataSource.cacheFirstTimer();
+      _localDataSource.cacheFirstTimer();
       return const Right(null);
     } on CacheException catch (e) {
       return Left(
@@ -37,8 +38,8 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
   }
 
   @override
-  ResultFuture<bool> checkIfUserIsFirstTimer() async {
-    await _localDataSource.checkIfUserIsFirstTimer();
+  Result<bool> checkIfUserIsFirstTimer() {
+    _localDataSource.checkIfUserIsFirstTimer();
     return const Right(true);
   }
 }
