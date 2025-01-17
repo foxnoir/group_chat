@@ -1,4 +1,4 @@
-import 'package:japanese_tutorials_app/features/on_boarding/datasources/on_boarding_local_data_source.dart';
+import 'package:japanese_tutorials_app/features/on_boarding/data/data_sources/on_boarding_local_data_source.dart';
 import 'package:japanese_tutorials_app/features/on_boarding/domain/repos/on_boarding_repo.dart';
 import 'package:japanese_tutorials_app/features/storage/prefs.dart';
 import 'package:mocktail/mocktail.dart';

@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:japanese_tutorials_app/core/log/logger.dart';
-import 'package:japanese_tutorials_app/features/on_boarding/presentation/on_boarding_screen.dart';
-import 'package:japanese_tutorials_app/features/router/app_router_names.dart';
-import 'package:japanese_tutorials_app/features/router/page_not_found.dart';
-import 'package:japanese_tutorials_app/features/router/transiton_page.dart';
+import 'package:japanese_tutorials_app/core/router/app_router_names.dart';
+import 'package:japanese_tutorials_app/core/router/page_not_found.dart';
+import 'package:japanese_tutorials_app/core/router/transiton_page.dart';
+import 'package:japanese_tutorials_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

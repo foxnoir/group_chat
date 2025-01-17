@@ -3,8 +3,8 @@ import 'package:japanese_tutorials_app/core/di/di.dart';
 import 'package:logger/logger.dart';
 
 @singleton
-class LoggerService {
-  LoggerService()
+class AppLogger {
+  AppLogger()
       : _logger = Logger(
           printer: PrettyPrinter(
             lineLength: 80,
@@ -39,4 +39,4 @@ class LoggerService {
   }
 }
 
-LoggerService get logger => DI.getIt<LoggerService>();
+AppLogger get logger => DI.getIt<AppLogger>();

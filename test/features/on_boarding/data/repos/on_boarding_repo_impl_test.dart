@@ -49,8 +49,10 @@ void main() {
 
         expect(
           result,
-          Left<CacheFailure, dynamic>(
-            CacheFailure(message: 'Insufficient storage'),
+          equals(
+            Left<CacheFailure, dynamic>(
+              CacheFailure(message: 'Insufficient storage'),
+            ),
           ),
         );
         verify(() => _localDataSource.cacheFirstTimer()).called(1);

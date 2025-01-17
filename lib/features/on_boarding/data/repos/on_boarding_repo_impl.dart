@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:japanese_tutorials_app/core/errors/exceptions.dart';
 import 'package:japanese_tutorials_app/core/errors/failures.dart';
 import 'package:japanese_tutorials_app/core/utils/type_defs.dart';
-import 'package:japanese_tutorials_app/features/on_boarding/datasources/on_boarding_local_data_source.dart';
+import 'package:japanese_tutorials_app/features/on_boarding/data/data_sources/on_boarding_local_data_source.dart';
 import 'package:japanese_tutorials_app/features/on_boarding/domain/repos/on_boarding_repo.dart';
 
 /// Repository:
@@ -23,7 +23,7 @@ class OnBoardingRepoImpl implements OnBoardingRepo {
   final OnBoardingLocalDataSource _localDataSource;
 
   @override
-  ResultFuture<void> cacheFirstTimer() async {
+  ResultFutureVoid cacheFirstTimer() async {
     try {
       await _localDataSource.cacheFirstTimer();
       return const Right(null);

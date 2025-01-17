@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:japanese_tutorials_app/core/errors/exceptions.dart';
-import 'package:japanese_tutorials_app/features/on_boarding/datasources/on_boarding_local_data_source.dart';
+import 'package:japanese_tutorials_app/features/on_boarding/data/data_sources/on_boarding_local_data_source.dart';
 import 'package:japanese_tutorials_app/features/storage/prefs.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -93,7 +93,7 @@ void main() {
         ).thenReturn(false);
 
         final result = _localDataSource.checkIfUserIsFirstTimer();
-        expect(result, false);
+        expect(result, equals(false));
 
         verify(
           () => _prefs.getBool(key: PrefsKey.isFirstTimer, defaultValue: true),
@@ -116,7 +116,7 @@ void main() {
         final result = _localDataSource.checkIfUserIsFirstTimer();
         final savedValue = _sharedPrefs.getString('${PrefsKey.isFirstTimer}');
         if (savedValue == null) {
-          expect(result, true);
+          expect(result, equals(true));
         }
         verify(
           () => _prefs.getBool(key: PrefsKey.isFirstTimer, defaultValue: true),
